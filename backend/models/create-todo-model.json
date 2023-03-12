@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "name": {
-      "type": "string", "mixLength": 3, "maxLength": 200
+      "type": "string", "minLength": 3, "maxLength": 200
     },
     "dueDate": {
       "type": "string"
