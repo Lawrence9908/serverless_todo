@@ -45,23 +45,23 @@ provider:
             - xray:PutTraceSegments
           Resource: "*"
 
-  custom:
-    documentation:
-      api:
-        info:
-          version: '1.0.0'
-          title: Todo API
-          description: Backend API for Todo Serverless Application
-        tags:
-          -
-            name: Todo
-            description: Todo Management
-      models:
-        - name: CreateTodoRequest
-          contentType: "application/json"
-          schema: ${file(models/create-todo-model.json)}
-        - name: UpdateTodoRequest
-          contentType: "application/json"
+custom:
+  documentation:
+    api:
+      info:
+        version: '1.0.0'
+        title: Todo API
+        description: Backend API for Todo Serverless Application
+      tags:
+        -
+          name: Todo
+          description: Todo Management
+    models:
+      - name: CreateTodoRequest
+        contentType: "application/json"
+        schema: ${file(models/create-todo-model.json)}
+      - name: UpdateTodoRequest
+        contentType: "application/json"
         schema: ${file(models/update-todo-model.json)}
 
 functions:
@@ -122,7 +122,7 @@ functions:
           authorizer: Auth
           request:
             schema:
-              application/json: ${file(src/requests/update-todo-request.json)}
+              application/json: ${file(models/update-todo-model.json)}
     iamRoleStatements:
       - Effect: Allow
         Action:
