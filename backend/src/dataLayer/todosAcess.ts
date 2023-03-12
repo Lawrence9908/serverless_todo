@@ -17,7 +17,7 @@ export class TodosAccess {
     ) {}
 
     async createTodo(todoItem: TodoItem): Promise<TodoItem> {
-        logger.info(`Creating todo new ${todo.todoId}`);
+        logger.info('Creating todo new');
 
         let params = {
             TableName: this.todosTable,
@@ -111,5 +111,5 @@ export class TodosAccess {
 }
 
 function createDynamoDBClient() {
-    return new XAWS.DynamoDB.DocumentClient()
+    return new AWS.DynamoDB.DocumentClient()
 }
