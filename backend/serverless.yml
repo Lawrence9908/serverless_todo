@@ -118,7 +118,7 @@ functions:
       - http:
           method: patch
           path: todos/{todoId}
-           cors: true
+          cors: true
           authorizer: Auth
           request:
             schema:
@@ -168,7 +168,7 @@ functions:
         Action:
           - s3:PutObject
           - s3:GetObject
-        Resource: arn:aws:s3:::${self:provider.environment.IMAGES_S3_BUCKET}/*
+        Resource: arn:aws:s3:::${self:provider.environment.ATTACHMENTS_S3_BUCKET}/*
       - Effect: Allow
         Action:
           - dynamodb:UpdateItem
